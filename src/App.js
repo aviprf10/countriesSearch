@@ -35,7 +35,7 @@ const CountryList = () => {
   };
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'column' }}>
       <h1>Country List</h1>
       <input
         type="text"
@@ -43,12 +43,12 @@ const CountryList = () => {
         value={searchTerm}
         onChange={handleSearch}
       />
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <div>
         {filteredCountries.length === 0 ? (
           <p>No matching countries found</p>
         ) : (
           filteredCountries.map((country) => (
-            <div key={country.cca3} style={{ margin: '10px', padding: '10px', border: '1px solid #ccc' }}>
+            <div key={country.cca3} className="country-container" style={{ margin: '10px', padding: '10px', border: '1px solid #ccc' }}>
               <img
                 src={country.flags.png}
                 alt={`${country.name.common} Flag`}
