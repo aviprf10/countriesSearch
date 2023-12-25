@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './App.css';
 
 const CountryList = () => {
   const [countries, setCountries] = useState([]);
@@ -43,16 +44,16 @@ const CountryList = () => {
         value={searchTerm}
         onChange={handleSearch}
       />
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <div className="country-list">
         {filteredCountries.length === 0 ? (
           <p>No matching countries found</p>
         ) : (
           filteredCountries.map((country) => (
-            <div key={country.cca3} style={{ margin: '10px', padding: '10px', border: '1px solid #ccc' }}>
+            <div key={country.cca3} className='country-card'>
               <img
                 src={country.flags.png}
                 alt={`${country.name.common} Flag`}
-                style={{ width: '30px', height: '20px' }}
+                style={{ width: '100%', height: '85%' }}
               />
               <span>{country.name.common}</span>
             </div>
