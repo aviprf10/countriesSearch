@@ -29,17 +29,11 @@ const CountryList = () => {
     const filtered = countries.filter(
       (country) =>
         country.name.common.toLowerCase().includes(term) ||
-        country.name.official.toLowerCase().includes(term)
+        country.name.common.toLowerCase().includes(term)
     );
-  
-    // Log the filtered countries
-    console.log('Filtered Countries:', filtered);
   
     // Limit the displayed results to 3
     const limitedResults = filtered.slice(0, 3);
-  
-    // Log the limited results
-    console.log('Limited Results:', limitedResults);
   
     setFilteredCountries(limitedResults);
   };
