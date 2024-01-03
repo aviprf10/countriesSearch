@@ -24,18 +24,13 @@ const CountryList = () => {
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term);
-  
+
     // Filter countries based on the partial search term
     const filtered = countries.filter(
       (country) =>
-        country.name.common.toLowerCase().includes(term) ||
         country.name.common.toLowerCase().includes(term)
     );
-  
-    // Limit the displayed results to 3
-    const limitedResults = filtered.slice(0, 3);
-  
-    setFilteredCountries(limitedResults);
+    setFilteredCountries(filtered);
   };
 
   return (
@@ -45,7 +40,7 @@ const CountryList = () => {
         placeholder="Search countries..."
         value={searchTerm}
         onChange={handleSearch}
-        style={{ margin: '10px', width: '50%', height: '29px' }}
+        style={{ margin: "10px", width: "50%", height: "29px" }}
       />
       <div
         style={{
