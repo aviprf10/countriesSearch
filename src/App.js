@@ -35,24 +35,41 @@ const CountryList = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-      <h1>Country List</h1>
+    <div style={{ textAlign: 'center' }}>
       <input
         type="text"
         placeholder="Search countries..."
         value={searchTerm}
         onChange={handleSearch}
+        style={{ margin: "10px", width: "50%", height: "29px" }}
       />
-      {filteredCountries.map((country) => (
-        <div key={country.cca3} style={{ margin: '10px', padding: '10px', border: '1px solid #ccc' }}>
-          <img
-            src={country.flags.png}
-            alt={`${country.name.common} Flag`}
-            style={{ width: '30px', height: '20px' }}
-          />
-          <span>{country.name.common}</span>
-        </div>
-      ))}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+          gap: '10px',
+        }}
+      >
+        {filteredCountries.map((country) => (
+          <div
+            key={country.cca3}
+            style={{
+              padding: '10px',
+              border: '1px solid #ccc',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <img
+              src={country.flags.png}
+              alt={`${country.name.common} Flag`}
+              style={{ width: '100px', height: '100px' }}
+            />
+            <span style={{ padding: '10px' }}>{country.name.common}</span>
+          </div>
+        ))}
+      </div>
       {filteredCountries.length === 0 && <p>No matching countries found</p>}
     </div>
   );
