@@ -40,7 +40,7 @@ const CountryList = () => {
         placeholder="Search countries..."
         value={searchTerm}
         onChange={handleSearch}
-        style={{ margin: "10px", width: "50%", height: "29px" }}
+        style={{ margin: '10px', width: '50%', height: '29px' }}
       />
       <div
         style={{
@@ -60,10 +60,12 @@ const CountryList = () => {
               alignItems: 'center',
             }}
           >
-            <img
-              src={country.flags.png}
-              alt={`${country.name.common} Flag`}
-              style={{ width: '100px', height: '100px' }}
+            <div
+              style={{
+                width: '100px',
+                height: '100px',
+                background: `url(${country.flags.png}) center/cover`,
+              }}
             />
             <span style={{ padding: '10px' }}>{country.name.common}</span>
           </div>
